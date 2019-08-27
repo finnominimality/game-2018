@@ -5,3 +5,7 @@ td {
     text-align: center;
 }
 
+#score {
+    display: inline;
+}
+

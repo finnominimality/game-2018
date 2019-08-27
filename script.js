@@ -4,6 +4,7 @@ let min = 0;
 let max = size - 1;
 let moved = false;
 let excludeCells = [];
+let score = 0;
 
 //Function setup creates the game field and sets initial values in two random cells
 function setup() {
@@ -27,6 +28,9 @@ function setup() {
     }
     document.getElementById(cell1).innerHTML = "2";
     document.getElementById(cell2).innerHTML = "2";
+
+    score = 0;
+    document.getElementById("score").innerHTML = score;
 }
 
 //Function pickRandomCell selects a random cell within the playgrid using the min and max
@@ -60,6 +64,7 @@ function up() {
                                     document.getElementById(newCell).innerHTML = (movedValue+currentValue);
                                     document.getElementById((k+1)+""+j).innerHTML = "";
                                     moved = true;
+                                    score += (movedValue + currentValue);
                                 }
                                 break;
                             }
@@ -103,6 +108,7 @@ function right() {
                                     document.getElementById(newCell).innerHTML = (movedValue+currentValue);
                                     document.getElementById(i+""+(k-1)).innerHTML = "";
                                     moved = true;
+                                    score += (movedValue + currentValue);
                                 }
                                 break;
                             }
@@ -147,6 +153,7 @@ function down() {
                                     document.getElementById(newCell).innerHTML = (movedValue+currentValue);
                                     document.getElementById((k-1)+""+j).innerHTML = "";
                                     moved = true;
+                                    score += (movedValue + currentValue);
                                 }
                                 break;
                             }
@@ -191,6 +198,7 @@ function left() {
                                     document.getElementById(newCell).innerHTML = (movedValue+currentValue);
                                     document.getElementById(i+""+(k+1)).innerHTML = "";
                                     moved = true;
+                                    score += (movedValue + currentValue);
                                 }
                                 break;
                             }
@@ -237,7 +245,8 @@ function updateCheck() {
 		break;
             }
         }
-    }		
+    }	
+    document.getElementById("score").innerHTML = score;	
     //If all cells are filled check if other movement possible 
     //Check if adjacent tiles with the same value in each column 
     if(allCellsFilled) {
