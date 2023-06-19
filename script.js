@@ -35,8 +35,8 @@ function setup() {
 
 //Function pickRandomCell selects a random cell within the playgrid using the min and max
 function pickRandomCell() {
-    var i = Math.floor(Math.random()*(max-min+1)+min);
-    var j = Math.floor(Math.random()*(max-min+1)+min);
+    let i = Math.floor(Math.random()*(max-min+1)+min);
+    let j = Math.floor(Math.random()*(max-min+1)+min);
     return i + "" + j;
 }
 
